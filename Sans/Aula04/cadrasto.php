@@ -8,29 +8,29 @@
 <body>
     <?php
  
- if (isset($_POST['nome']) && isset($_POST['endereco']) && isset($_POST['cidade'])) {
+     if (isset($_POST['nome']) && isset($_POST['endereco']) && isset($_POST['cidade'])) {
  
-    $nome = $_POST['nome'];
-    $endereco = $_POST['endereco'];
-    $cidade = $_POST['cidade'];
+        $nome = $_POST['nome'];
+        $endereco = $_POST['endereco'];
+        $cidade = $_POST['cidade'];
 
 
-    echo "<h1>Dados Recebidos:</h1>";
-    echo "<p><strong>Nome:</strong> $nome</p>";
-    echo "<p><strong>Endereço:</strong> $endereco</p>";
-    echo "<p><strong>Cidade:</strong> $cidade</p>";
-} else {
+        echo "<h1>Dados Recebidos:</h1>";
+        echo "<p><strong>Nome:</strong> $nome</p>";
+        echo "<p><strong>Endereço:</strong> $endereco</p>";
+        echo "<p><strong>Cidade:</strong> $cidade</p>";
+      } else {  
 
-    echo "<h1>Erro: Todos os campos são obrigastorios.</h1>";
-}
+        echo "<h1>Erro: Todos os campos são obrigatorios.</h1>";
+    }
 
-$conexao = mysqli_connect("localhost, root, "", aula_php");
+$conexao = mysqli_connect("localhost", "root", "", "aula_php");
 
 if (!$conexao) {
     die("Erro de conexão com o banco de dados");
 }
   
-$sql = "INSERT INTO alunos (nome, endereco, cidade) VALUES ('$nome', '$endereco', '$cidade')";
+$sql = "INSERT INTO alunos (nome, endereco, cidade) VALUES ('$nome', '$endereco', '$cidade')"; 
 
 $resultado = mysqli_query($conexao, $sql);
 mysqli_close($conexao)    
